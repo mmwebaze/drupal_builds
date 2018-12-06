@@ -1,4 +1,5 @@
-import json, os, subprocess
+import json, os
+from time import gmtime, strftime
 
 
 def load_config(configurations, configuration = 0):
@@ -27,5 +28,5 @@ def backup_codebase(codeBaseDir):
 
 if __name__ == "__main__":
 
-    print('Testing jenkins')
+    print('Deployment beginning now: '+ strftime("%Y-%m-%d %H:%M:%S", gmtime()))
     build()
