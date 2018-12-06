@@ -1,22 +1,22 @@
 import json, os, subprocess
 
 
-def load_secrets(secrets, selected_secrets = 0):
+def load_config(configurations, configuration = 0):
 
-    secrets = json.load(open(secrets, 'r'))
-    return secrets['credentials'][selected_secrets]
+    config = json.load(open(configurations, 'r'))
+    return config['configurations'][configuration]
 
 
 def build(secret = 'config.json'):
 
-    secrets = load_secrets(secret)
+    config = load_config(secret)
 
-    print(secrets)
-    backup_database(secrets['username'], secrets['password'], secrets['database'], secrets['port'])
+    print(config)
+    backup_database(config['name'], config['username'], config['password'], config['database'], config['backup_folder'], config['port'])
 
 
-def backup_database(username, password, database, port = 3306):
-    backup_command = "mysqldump -u %s %s -P%s -p%s > %s" % (username, database, port, password, 'mybackup_new.sql')
+def backup_database(name, username, password, database, backup_folder, port=3306):
+    backup_command = "mysqldump -u %s %s -p%s > %s" % (username, database, password, backup_folder+'/'+name+'.sql')
 
     os.system(backup_command)
 
