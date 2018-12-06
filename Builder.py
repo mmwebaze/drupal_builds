@@ -8,6 +8,7 @@ def load_config(configurations, configuration = 0):
 
 
 def build(secret = 'config.json'):
+    print("Start...")
 
     config = load_config(secret)
 
