@@ -5,7 +5,11 @@ pipeline {
   agent any
 
   stages {
-
+    stage ('unit tests') {
+        steps {
+            sh "echo Running unit tests:"
+        }
+    }
     stage ('behat tests') {
 
       steps {
