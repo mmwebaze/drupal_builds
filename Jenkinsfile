@@ -1,12 +1,12 @@
 pipeline {
  environment {
-
+    BACKUP_FOLDER = 'backups'
  }
   agent any
 
   stages {
     stage ('unit tests') {
-        echo "Running unit tests:"
+        sh "echo Running unit tests:"
     }
     stage ('behat tests') {
 
