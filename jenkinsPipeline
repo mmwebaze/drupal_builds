@@ -1,0 +1,12 @@
+pipeline {
+  agent any
+
+  stages {
+    stage ('behat tests') {
+
+      steps {
+        sh 'python --version'
+      }
+    }
+  }
+}
