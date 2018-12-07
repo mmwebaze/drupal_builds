@@ -13,8 +13,7 @@ pipeline {
     stage ('behat tests') {
 
       steps {
-        sh "python3 --version;\
-        python3 Builder.py"
+        sh "python3 --version"
       }
     }
   }
